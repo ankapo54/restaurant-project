@@ -1,0 +1,59 @@
+@import "./variables";
+
+
+@mixin btnPrimary () {
+    position: relative;
+    background: none;
+    color: $primaryColor;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.2em solid $primaryColor;
+    padding: 0.5em 1.5em;
+    font-weight: 800;
+    opacity: 0.8;
+    font-size: 1.1em;
+    outline: none !important;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10%;
+      background: $mainBlack;
+      height: 0.3em;
+      right: 20%;
+      top: -0.21em;
+      outline: none !important;
+      transform: skewX(-45deg);      
+      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    };
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 10%;
+        background: $mainBlack;
+        height: 0.3em;
+        left: 20%;
+        outline: none !important;
+        bottom: -0.21em;
+        transform: skewX(45deg);        
+        transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    };
+    &:hover, &:active, &:focus {
+      color: inherit;
+      outline: none !important;
+      box-shadow: none;
+      &::before {
+        
+          right: 80%;
+        };
+      &::after {
+          left: 80%;
+        };
+        //zoom: 1.2;
+       // color: $mainRed;
+        opacity: 1;
+        
+        color: $primaryColor;
+    };
+}
